@@ -1,0 +1,64 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "durable-context"
+version = "0.1.0"
+description = "State that survives conversation compaction: a hot checkpoint and an append-only decision log for long-running agent sessions."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Eduardo de Souza Marques" }]
+maintainers = [{ name = "Eduardo de Souza Marques" }]
+keywords = [
+    "agent",
+    "llm",
+    "context",
+    "compaction",
+    "checkpoint",
+    "session-state",
+    "decision-log",
+    "hooks",
+    "observability",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Utilities",
+    "Typing :: Typed",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/edusouzaxGV/durable-context"
+Repository = "https://github.com/edusouzaxGV/durable-context"
+Issues = "https://github.com/edusouzaxGV/durable-context/issues"
+
+[project.scripts]
+durable-context = "durable_context.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["durable_context"]
+# PEP 561: without this marker shipped in the wheel, the "Typing :: Typed"
+# classifier is a lie and every downstream type checker ignores the annotations.
+force-include = { "durable_context/py.typed" = "durable_context/py.typed" }
+
+[tool.hatch.build.targets.sdist]
+include = ["durable_context", "tests", "README.md", "LICENSE", "PROVENANCE.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
