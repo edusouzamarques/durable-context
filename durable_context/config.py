@@ -51,6 +51,17 @@ def parse_duration(text: str) -> timedelta:
     return timedelta(seconds=value * _UNIT_SECONDS[unit])
 
 
+def _running_on_windows() -> bool:
+    """Platform check behind a seam, so tests never fake ``os.name`` globally.
+
+    Patching ``os.name`` to ``"nt"`` also makes ``pathlib.Path()`` return a
+    ``WindowsPath``, which raises ``NotImplementedError`` on POSIX. That is a
+    test-only hazard with no bearing on the behaviour under test, and it took
+    down the whole CI run on Linux. Patch this function instead.
+    """
+    return os.name == "nt"
+
+
 def split_command(text: str, *, windows: bool | None = None) -> tuple[str, ...]:
     """Split a configured command line into argv, correctly on either platform.
 
@@ -66,7 +77,7 @@ def split_command(text: str, *, windows: bool | None = None) -> tuple[str, ...]:
     would have done anyway.
     """
     if windows is None:
-        windows = os.name == "nt"
+        windows = _running_on_windows()
     if not windows:
         return tuple(shlex.split(text))
     parts = []

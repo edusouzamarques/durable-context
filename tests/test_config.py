@@ -114,10 +114,11 @@ def test_a_windows_command_keeps_its_path_separators():
 
 def test_from_env_splits_the_command_for_the_host_platform(monkeypatch):
     """The whole point is that this reaches the configured binary unmangled."""
-    import os as _os
-
+    from durable_context import config as _cfg
     from durable_context.config import Config as _Config
 
-    monkeypatch.setattr(_os, "name", "nt")
+    # Patch the seam, not os.name: faking os.name globally also makes
+    # pathlib.Path() build a WindowsPath, which explodes on POSIX runners.
+    monkeypatch.setattr(_cfg, "_running_on_windows", lambda: True)
     parsed = _Config.from_env({"DURABLE_CONTEXT_DISTILL_CMD": r"C:\tools\run.exe --json"})
     assert parsed.distill_command == (r"C:\tools\run.exe", "--json")
