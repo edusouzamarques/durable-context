@@ -1,8 +1,8 @@
 # durable-context
 
-[![CI](https://github.com/edusouzaxGV/durable-context/actions/workflows/ci.yml/badge.svg)](https://github.com/edusouzaxGV/durable-context/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue)](https://github.com/edusouzaxGV/durable-context)
-[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/edusouzaxGV/durable-context/blob/main/LICENSE)
+[![CI](https://github.com/edusouzamarques/durable-context/actions/workflows/ci.yml/badge.svg)](https://github.com/edusouzamarques/durable-context/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/python-3.9%20%7C%203.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue)](https://github.com/edusouzamarques/durable-context)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](https://github.com/edusouzamarques/durable-context/blob/main/LICENSE)
 
 State that survives conversation compaction. Zero runtime dependencies.
 
@@ -69,7 +69,7 @@ inherit one either.
 Not on PyPI yet, so install from the repository:
 
 ```bash
-pip install git+https://github.com/edusouzaxGV/durable-context
+pip install git+https://github.com/edusouzamarques/durable-context
 ```
 
 ## Use it as a hook

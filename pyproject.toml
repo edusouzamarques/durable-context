@@ -43,9 +43,9 @@ dependencies = []
 dev = ["pytest>=7.0"]
 
 [project.urls]
-Homepage = "https://github.com/edusouzaxGV/durable-context"
-Repository = "https://github.com/edusouzaxGV/durable-context"
-Issues = "https://github.com/edusouzaxGV/durable-context/issues"
+Homepage = "https://github.com/edusouzamarques/durable-context"
+Repository = "https://github.com/edusouzamarques/durable-context"
+Issues = "https://github.com/edusouzamarques/durable-context/issues"
 
 [project.scripts]
 durable-context = "durable_context.cli:main"

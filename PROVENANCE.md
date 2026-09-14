@@ -3,7 +3,7 @@
 ## Authorship
 
 **Eduardo de Souza Marques** — author, architect and maintainer.
-GitHub: [edusouzaxGV](https://github.com/edusouzaxGV)
+GitHub: [edusouzamarques](https://github.com/edusouzamarques)
 
 ## What this was extracted from
 
